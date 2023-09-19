@@ -37,8 +37,8 @@ function onDataReceived(text) {
   if (text === 'quit\n'  || text==='exit\n') {
     quit();
   }
-  else if(text === 'hello\n'){
-    hello();
+  else if(text.includes("hello")){
+    hello(text);
   }
   else if(text === 'help\n'){
     help();
@@ -66,8 +66,13 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
+function hello(text_recieved){
+
+  let text= text_recieved.replace('\n',"")
+  text=text.trim();
+  text=text.slice(6,text.length);
+
+  console.log('hello '+text+'!')
 }
 
 
