@@ -82,7 +82,7 @@ function quit(){
 }
 
 /**
- * list all the commands
+ * list all the commands and what every command do
  *
  * @returns {void}
  */
