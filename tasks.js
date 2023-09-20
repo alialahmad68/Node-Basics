@@ -104,7 +104,15 @@ function quit(){
  * @returns {void}
  */
 function help(){
-  console.log('type "hello" to say Hello!\ntype "hello" and your name to display hello "your name"\ntype "exit" or "quit" to exit the application\ntype "help" to list all the commands')
+
+  console.log(`type "hello" to say Hello!
+type "hello" and your name to display hello "your name"
+type "exit" or "quit" to exit the application
+type "help" to list all the commands
+type "list" to list all the tasks
+type "add" and the task you want to add the task
+type "remove" only to remove the last task
+type "remove" and the number of the task to remove the task`)
 }
 
 let tasks=[
