@@ -43,6 +43,9 @@ function onDataReceived(text) {
   else if(text === 'help\n'){
     help();
   }
+  else if(text === 'list\n'){
+    list();
+  }
   else{
     unknownCommand(text);
   }
@@ -96,6 +99,26 @@ function quit(){
 function help(){
   console.log('type "hello" to say Hello!\ntype "hello" and your name to display hello "your name"\ntype "exit" or "quit" to exit the application\ntype "help" to list all the commands')
 }
+
+let tasks=[
+  "buy bread",
+  "do the exercises"
+   ]
+
+   
+/**
+ * list the tasks
+ *
+ * @returns {void}
+ */
+function list(){
+ for (let i=0;i<tasks.length;i++) {
+  console.log(`${i+1} - [ ] ${tasks[i]}`)
+ }
+}
+
+
+
 
 // The following line starts the application
 startApp("Ali Al Ahmad")
