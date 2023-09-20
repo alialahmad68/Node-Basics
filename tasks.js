@@ -34,6 +34,7 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
+  textCommand=text.trim().split(" ");
   if (text === 'quit\n'  || text==='exit\n') {
     quit();
   }
@@ -46,6 +47,9 @@ function onDataReceived(text) {
   else if(text === 'list\n'){
     list();
   }
+  else if(textCommand[0]+'\n' === 'add\n'){
+add(text);
+ }
   else{
     unknownCommand(text);
   }
@@ -105,7 +109,7 @@ let tasks=[
   "do the exercises"
    ]
 
-   
+
 /**
  * list the tasks
  *
@@ -115,6 +119,20 @@ function list(){
  for (let i=0;i<tasks.length;i++) {
   console.log(`${i+1} - [ ] ${tasks[i]}`)
  }
+}
+
+/**
+ * add a task
+ *
+ * @returns {void}
+ */
+function add(text){
+  if(text.trim().length==3){
+    console.log("error, please add a task after using add command")
+  }
+  else{
+    tasks.push(text.slice(4,text.length).trim());
+  }
 }
 
 
