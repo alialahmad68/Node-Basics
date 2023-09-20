@@ -94,7 +94,7 @@ function quit(){
  * @returns {void}
  */
 function help(){
-  console.log('type "hello" to say Hello!\ntype "exit" or "quit" to exit the application\ntype "help" to list all the commands')
+  console.log('type "hello" to say Hello!\ntype "hello" and your name to display hello "your name"\ntype "exit" or "quit" to exit the application\ntype "help" to list all the commands')
 }
 
 // The following line starts the application
