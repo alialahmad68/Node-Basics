@@ -1,3 +1,6 @@
+const fs = require('fs');
+const filePath = 'database.json';//json file path
+let tasks=[];// the loaded data will be here
 
 /**
  * Starts the application
@@ -10,14 +13,20 @@
  * @returns {void}
  */
 function startApp(name){
+  try{
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
-  process.stdin.on('data', onDataReceived);
-  console.log(`Welcome to ${name}'s application!`)
+  fs.readFile(filePath,(err,data)=>{
+    tasks=JSON.parse(data);
+    process.stdin.on('data', onDataReceived);
+    console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+  })
+
+  }catch{
+    console.log(err);
+  }
 }
-
-
 /**
  * Decides what to do depending on the data that was received
  * This function receives the input sent by the user.
@@ -103,6 +112,9 @@ function hello(text_recieved){
  * @returns {void}
  */
 function quit(){
+const jsonData = JSON.stringify(tasks);
+fs.writeFileSync(filePath, jsonData, 'utf8');
+
   console.log('Quitting now, goodbye!')
   process.exit();
 }
@@ -128,10 +140,7 @@ type "check" and number of task to check the task
 type "uncheck" and number of task to uncheck the task`)
 }
 
-let tasks=[
-  {task:"buy bread",done:false},
-  {task:"do the exercises",done:false},
-]
+
 
 
 /**
