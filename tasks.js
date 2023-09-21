@@ -1,6 +1,9 @@
 const fs = require('fs');
-const filePath = 'database.json';//json file path
+const filePath = process.argv[2]||'database.json';//json file path
 let tasks=[];// the loaded data will be here
+if(!fs.existsSync(filePath)){
+  fs.writeFileSync(filePath, '[]', 'utf8');
+}
 
 /**
  * Starts the application
