@@ -152,13 +152,16 @@ function add(text){
  * @returns {void}
  */
 function remove(text){
+  let index=text.slice(6,text.length).trim()-1;
 
-  if(text.trim().length==6){
+    if(text.trim().length==6){
     tasks.pop();
     console.log("Last element Removed succesfully")
   }
+  else if(index>=tasks.length || index<0){
+    console.log("Error, number of task does not exist")
+  }
   else{
-    let index=text.slice(6,text.length).trim()-1;
 tasks.splice(index,1);
 console.log(`Task ${index+1} Removed succesfully`)
 
