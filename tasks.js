@@ -119,9 +119,9 @@ type "remove" and the number of the task to remove the task`)
 }
 
 let tasks=[
-  "buy bread",
-  "do the exercises"
-   ]
+  {task:"buy bread",done:false},
+  {task:"do the exercises",done:false},
+]
 
 
 /**
@@ -131,7 +131,7 @@ let tasks=[
  */
 function list(){
  for (let i=0;i<tasks.length;i++) {
-  console.log(`${i+1} - [ ] ${tasks[i]}`)
+  console.log(`${i+1} - [${tasks[i].done? "✓":" "}] ${tasks[i].task}`)
  }
 }
 
@@ -145,7 +145,9 @@ function add(text){
     console.log("error, please add a task after using add command")
   }
   else{
-    tasks.push(text.slice(4,text.length).trim());
+    tasks.push({task:text.slice(4,text.length).trim(),done:false});
+    console.log("Task aded succesfully")
+
   }
 }
 
