@@ -197,12 +197,12 @@ function edit(text){
     console.log("Error, type task you want ");
   }
   else if(index>=0){
-tasks[index]=new_text.replace("\n","");
+tasks[index].task=new_text.replace("\n","");
 console.log(`Task ${index+1} edited succesfully`);
 
 }
 else{
-tasks[tasks.length-1]=splited_text;
+tasks[tasks.length-1].task=splited_text;
 console.log(`last task edited succesfully`);
 }
 }
