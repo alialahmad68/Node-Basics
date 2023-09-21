@@ -38,7 +38,7 @@ function onDataReceived(text) {
   if (text === 'quit\n'  || text==='exit\n') {
     quit();
   }
-  else if(text.includes("hello")){
+  else if(textCommand[0]+'\n' === 'hello\n'){
     hello(text);
   }
   else if(text === 'help\n'){
